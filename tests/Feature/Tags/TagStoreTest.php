@@ -56,10 +56,7 @@ final class TagStoreTest extends TestCase
         $this->post(route($this->route), [
             'name' => $name = str_repeat('a', 3),
         ])
-            ->assertStatus(201)
-            ->assertJsonMissingValidationErrors([
-                'name',
-            ]);
+            ->assertStatus(201);
 
         $this->assertDatabaseHas(Tag::class, [
             'name' => $name,
@@ -68,10 +65,7 @@ final class TagStoreTest extends TestCase
         $this->post(route($this->route), [
             'name' => $name = str_repeat('a', 255),
         ])
-            ->assertStatus(201)
-            ->assertJsonMissingValidationErrors([
-                'name',
-            ]);
+            ->assertStatus(201);
 
         $this->assertDatabaseHas(Tag::class, [
             'name' => $name,

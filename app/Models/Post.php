@@ -27,11 +27,12 @@ class Post extends Model
     public function translation(): HasOne
     {
         return $this->hasOne(PostTranslation::class)
-            ->whereHas('language', static function (Builder $query): void {
-                $query->where('prefix', '=', static::translations()->where('prefix', app()->getLocale())->exists()
-                    ? app()->getFallbackLocale()
-                    : app()->getLocale());
-            });
+            ->whereHas('language', function (Builder $builder): void {
+                $builder->where('prefix', '=', $this->translations()->whereHas('language', static function (Builder $query): void {
+                    $query->where('prefix', '=', app()->getLocale());
+                })->exists() ? app()->getLocale() : app()->getFallbackLocale());
+            })
+            ->withDefault();
     }
 
     public function tags(): BelongsToMany

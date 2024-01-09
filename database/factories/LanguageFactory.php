@@ -8,6 +8,9 @@ use App\Models\Language;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
+/**
+ * @extends Factory<Language>
+ */
 class LanguageFactory extends Factory
 {
     protected $model = Language::class;

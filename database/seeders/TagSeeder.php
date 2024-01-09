@@ -25,7 +25,6 @@ class TagSeeder extends Seeder
 
     public function run(): void
     {
-        // @phpstan-ignore-next-line
         Tag::factory(100)->afterMaking(function (Tag $tag): void {
             $tag->posts()->attach($this->posts->random(random_int(2, 5)));
         })->create();
