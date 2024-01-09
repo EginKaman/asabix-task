@@ -14,6 +14,7 @@ class PostTranslation extends Model
     use HasFactory;
     use HasUuids;
 
+    public $timestamps = false;
     protected $fillable = [
         'post_id',
         'language_id',
@@ -25,6 +26,11 @@ class PostTranslation extends Model
     protected $casts = [
         'post_id'     => 'string',
         'language_id' => 'string',
+    ];
+
+    protected $attributes = [
+        'title'   => null,
+        'content' => null,
     ];
 
     public function post(): BelongsTo

@@ -36,7 +36,7 @@ class PostSeeder extends Seeder
     {
         $translations = collect();
 
-        Post::factory(500)->afterCreating(function (Post $post) use ($translations): void {
+        Post::factory(60)->afterCreating(function (Post $post) use ($translations): void {
             $this->languages->each(function (Language $language) use ($translations, $post): void {
                 config(['app.faker_locale' => $this->fakerLocales[$language->prefix]]);
 
