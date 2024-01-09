@@ -2,7 +2,8 @@
 
 declare(strict_types=1);
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,5 +16,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
-Route::middleware('auth:sanctum')->get('/user', static fn (Request $request) => $request->user());
+Route::group(['as' => 'api.'], static function (): void {
+    Route::apiResource('posts', PostController::class)->whereUuid(['post']);
+    Route::apiResource('tags', TagController::class)->whereUuid(['tag']);
+});
