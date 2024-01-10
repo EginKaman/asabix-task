@@ -17,6 +17,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::group(['as' => 'api.'], static function (): void {
-    Route::apiResource('posts', PostController::class)->whereUuid(['post']);
+    Route::middleware('localization')->apiResource('posts', PostController::class)->whereUuid(['post']);
     Route::apiResource('tags', TagController::class)->whereUuid(['tag']);
 });

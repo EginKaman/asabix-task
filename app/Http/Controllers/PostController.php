@@ -25,7 +25,7 @@ class PostController extends Controller
 
     public function show(Post $post): PostResource
     {
-        return new PostResource($post->load(['translation', 'tags']));
+        return new PostResource($post->load(['translation', 'translations', 'translations.language', 'tags']));
     }
 
     public function update(PostRequest $request, Post $post, PostRepository $repository): PostResource

@@ -46,9 +46,8 @@ class PostRequest extends FormRequest
                 'max:16777215',
             ],
             'tags' => [
-                'sometimes',
+                'nullable',
                 'array',
-                'min:1',
                 'max:10',
             ],
             'tags.*' => [

@@ -8,10 +8,8 @@ use App\Models\Language;
 use App\Models\Post;
 use App\Models\PostTranslation;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\RecordsNotFoundException;
 use Illuminate\Database\Seeder;
-use LaravelIdea\Helper\App\Models\_IH_Language_C;
 
 class PostSeeder extends Seeder
 {

@@ -63,13 +63,14 @@ final class PostShowTest extends TestCase
         $response->assertStatus(200)
             ->assertJsonFragment([
                 'data' => [
-                    'id'          => $post->id,
-                    'title'       => null,
-                    'description' => null,
-                    'content'     => null,
-                    'created_at'  => $post->created_at,
-                    'updated_at'  => $post->updated_at,
-                    'tags'        => [],
+                    'id'                  => $post->id,
+                    'title'               => null,
+                    'description'         => null,
+                    'content'             => null,
+                    'created_at'          => $post->created_at,
+                    'updated_at'          => $post->updated_at,
+                    'tags'                => [],
+                    'translations'        => [],
                 ],
             ]);
     }

@@ -29,7 +29,7 @@ class PostRepository
 
         $post->tags()->sync($postData->tags);
 
-        return $post->loadMissing(['translation', 'tags']);
+        return $post->loadMissing(['translation', 'translations', 'translations.language', 'tags']);
     }
 
     public function update(Post $post, PostData $postData): Post
@@ -47,6 +47,6 @@ class PostRepository
 
         $post->tags()->sync($postData->tags);
 
-        return $post->load(['translation', 'tags']);
+        return $post->load(['translation', 'translations', 'translations.language', 'tags']);
     }
 }

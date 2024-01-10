@@ -14,7 +14,7 @@ class PostTranslationResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'post_id'     => $this->post_id,
+            'language'    => new LanguageResource($this->whenLoaded('language')),
             'language_id' => $this->language_id,
             'title'       => $this->title,
             'description' => $this->description,

@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', static fn () => view('welcome'));
+Route::get('{any}', static fn () => view('app'))->where('any', '.*');
